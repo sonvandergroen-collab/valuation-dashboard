@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Property Valuation Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+</head>
+<body>
+  <header>
+    <h1>Property Valuation Dashboard</h1>
+    <p>Interactive analysis of buyer-conditioned valuation ranges.</p>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Valuation ranges</h2>
+          <p class="muted">Blue bars show range (min–max). Red dots show base / IC value. Click a row to see details.</p>
+        </div>
+        <div class="muted" id="overlap"></div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="chart"></canvas>
+      </div>
+
+      <div class="legend muted">
+        Tip: Replace <code>data/valuations.json</code> with your numbers. Everything updates automatically.
+      </div>
+    </section>
+
+    <aside class="card">
+      <h2>Valuation Analyst</h2>
+      <p class="muted">Click an investor or use quick questions.</p>
+
+      <div id="detail" class="bubble">
+        Hello! Click on any investor row in the chart to see the profile and reasoning.
+      </div>
+
+      <div class="qa">
+        <button data-q="overlap">What is the overlap band?</button>
+        <button data-q="highest">Who is highest and why?</button>
+        <button data-q="lowest">Who is lowest and why?</button>
+        <button data-q="winner">Who is most likely to win?</button>
+      </div>
+
+      <div id="answer" class="answer muted"></div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
